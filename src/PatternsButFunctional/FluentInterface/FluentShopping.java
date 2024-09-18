@@ -3,11 +3,10 @@ package PatternsButFunctional.FluentInterface;
 public class FluentShopping {
 
     public static void main(String[] args) {
-
-        new Order()
+        Order.place(order -> order
                 .add("Shoes")
-          .add("Headphones")
+                .add("Headphones")
                 .deliverAt("Street no 45, Jodhpur")
-                .place();
+                );
     }
 }

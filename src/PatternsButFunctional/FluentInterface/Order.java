@@ -1,5 +1,7 @@
 package PatternsButFunctional.FluentInterface;
 
+import FunProgramInDepth.Composition.Function;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,8 +30,10 @@ class Order{
         return new Order(this.cart, this.address);
     }
 
-    public void place() {
+    public static void place(Function<Order, Order> function) {
+        Order order = new Order();
+        order = function.apply(order);
         System.out.println("Order placed!");
-        System.out.println(this.cart.size()+" items ordered by you will be delivered at "+this.address+" by tomorrow");
+        System.out.println(order.cart.size()+" items ordered by you will be delivered at "+order.address+" by tomorrow");
     }
 }
